@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import './App.css'
 
 export default function App() {
   const [data, setData] = useState([])
+  const carousel = useRef(null)
 
   useEffect(() => {
     fetch('http://localhost:3000/static/shoes.json').then((response) =>
@@ -16,10 +17,14 @@ export default function App() {
 
   const handleLeftClick = (e) => {
     e.preventDefault()
+    // console.log(carousel.current.offsetWidth)
+    carousel.current.scrollLeft -= carousel.current.offsetWidth
   }
 
   const handleRightClick = (e) => {
     e.preventDefault()
+    // console.log(carousel.current.offsetWidth)
+    carousel.current.scrollLeft += carousel.current.offsetWidth
   }
 
   return (
@@ -27,7 +32,7 @@ export default function App() {
       <div className="logo">
         <img src="/static/images/super-shoes.png" alt="logo" />
       </div>
-      <div className="carousel">
+      <div className="carousel" ref={carousel}>
         {data.map((item) => {
           const { id, name, price, oldPrice, image } = item
           return (
