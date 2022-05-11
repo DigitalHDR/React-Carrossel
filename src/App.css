@@ -23,6 +23,10 @@ body {
   scroll-behavior: smooth;
 }
 
+.container .carousel::-webkit-scrollbar {
+  display: none;
+}
+
 .container .carousel .item {
   background-color: white;
   margin: 10px;
@@ -39,7 +43,7 @@ body {
 }
 
 .container .carousel .item .info {
-  height: 140px;
+  height: 150px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -64,6 +68,7 @@ body {
   font-size: 0.8rem;
   text-decoration: line-through;
   /* flex-grow: 1; */
+  margin-top: auto;
   color: #e81a5d;
 }
 

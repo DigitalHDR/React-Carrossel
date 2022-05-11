@@ -41,7 +41,7 @@ export default function App() {
                 <img src={image} alt={name} />
               </div>
               <div className="info">
-                <span className="name">{name}</span>
+                <span className="name">{name.substring(0, 23) + '...'}</span>
                 <span className="oldPrice">R$ {oldPrice}</span>
                 <span className="price">R$ {price}</span>
               </div>
