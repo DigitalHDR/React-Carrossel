@@ -10,3 +10,5 @@
 `nessa projeto esta fazendo referencia a uma class do css`
 
 `::-webkit-scrollbar, foi usado para esconder a barra de rolagem`
+
+`foi alterado o uso da api de fetch para arquivo json direto`
