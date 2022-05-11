@@ -1,29 +1,17 @@
-import { useEffect, useState, useRef } from 'react'
+import { useRef } from 'react'
 import './App.css'
+import shoes from './shoes.json'
 
 export default function App() {
-  const [data, setData] = useState([])
   const carousel = useRef(null)
-
-  useEffect(() => {
-    fetch('http://localhost:3000/static/shoes.json').then((response) =>
-      response.json().then(setData)
-    )
-  }, [])
-
-  if (!data || !data.length) {
-    return null
-  }
 
   const handleLeftClick = (e) => {
     e.preventDefault()
-    // console.log(carousel.current.offsetWidth)
     carousel.current.scrollLeft -= carousel.current.offsetWidth
   }
 
   const handleRightClick = (e) => {
     e.preventDefault()
-    // console.log(carousel.current.offsetWidth)
     carousel.current.scrollLeft += carousel.current.offsetWidth
   }
 
@@ -33,7 +21,7 @@ export default function App() {
         <img src="/static/images/super-shoes.png" alt="logo" />
       </div>
       <div className="carousel" ref={carousel}>
-        {data.map((item) => {
+        {shoes.map((item) => {
           const { id, name, price, oldPrice, image } = item
           return (
             <div className="item" key={id}>
